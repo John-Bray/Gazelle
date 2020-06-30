@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <sim>
+    <model>
+      <livery>
+        <name type="string">FBandit Nightmare</name>
+        <texture>liveries/BN.jpg</texture>
+		<milltexture>liveries/BN.jpg</milltexture>
+
+      </livery>
+    </model>
+	 <rendering>
+		<refl_correction type="string">-0.25</refl_correction>
+	</rendering>
+  </sim>
+
+</PropertyList>

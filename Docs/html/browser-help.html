@@ -1,0 +1,165 @@
+<html>
+<head>
+	<title>Gazelle Browser Help</title>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body>
+
+<h1>Gazelle Help</h1>
+
+<table width = "620" cellpadding="2" cellspacing="2" border="0">
+	<tr><th align="center" colspan="3">MENU</th></tr>
+	<tr>
+		<td width = "200" height="25"><a href="#quickStart">Quick Start</a></td>	
+		<td width = "200"><a href="#instrumentation">Instrumentation</a></td>	 
+		<td><a href="#engineShutdown">Engine Shutdown</a></td>		
+	</tr>	
+</table>
+
+
+
+<a name="quickStart"></a>	                                          <h2>QUICK START</h2>
+<table width = "620" cellpadding="2" cellspacing="2" border="0"><tr>
+<tr bgcolor="gray"><th align="center" colspan="2">Automatic engine starting</th></tr>
+  <td valign="bottom">
+The Gazelle can be started automatically either from the Gazelle menu or by clicking on 
+the OFF-RUN-INJ selector at the bottom left of the lower instrument console.
+<br /><br />
+This will run through the start sequence including removing the rotor-brake, running up 
+the engine via the starter-generator, igniting the fuel injectors and releasing the 
+ignition to the fuel injectors at the appropriate time.  With the engine self-sustaining, 
+the throttle will be advanced and the engine and rotors will then build up to normal 
+operating speed.
+<br /><br />
+See <a href="#cwp">Central Warning Panel</a> for sequence and significance of the lights.
+  </td>
+  <td ><img src ="autostart.jpg"><br /><img src ="startSwitch.jpg"></td>
+</tr>
+<tr>
+	<td align="left" colspan="2">
+<!-- for continuation text, if required -->
+	</td>
+</tr>
+</table>
+
+
+
+<a name="instrumentation"></a>                                    <h2>INSTRUMENTATION</h2>
+<!-- ============================================================================= CWP -->
+<a name="cwp"></a>
+<table width = "620" cellpadding="2" cellspacing="2" border="0">
+<tr bgcolor="gray"><th align="center" colspan="2">Central Warning Panel (CWP)</th></tr>
+<tr>
+  <td valign="bottom">
+The <b>Central Warning Panel</b> is positioned at the top-left if the main instrument panel 
+and is shown here when the aircraft battery power is first applied.  During the start sequence, 
+all these lights should extinguish as the engine and gearbox (main-rotor) speeds build up.
+<br /><br />
+When the last caption has extinguished, the aircraft is just about ready for take off and 
+a few seconds later the rotor-rpm will be at normal operating speed. 
+<br /><br />
+    The captions, in sequence on the panel, are . .
+  </td>
+  <td align="left" colspan="2">
+    <img src ="cwp.png">
+  </td>
+</tr>
+<tr>
+	<td align="left" colspan="2">
+	<ul>
+		<li>PITOT (pitot heater) this will be turned on when engine is running (otherwise it 
+			would drain battery power)</li>
+		<li>ENG.P (engine oil pressure) - goes out when engine oil pressure is correct (more 
+			than 0.8 bar) - around or above idle</li>
+		<li>MGB.P (main gearbox pressure) - goes out when > 1.5 bar</li>
+		<li>MGB.T (main gearbox temperature) - stays OFF as long as it is less than 115 deg C</li>
+		<li>GEN (generator - DC) comes online around 19-30,000 rpm</li>
+		<li>ALT.NR (alternator - AC 115V) - caption goes out after clutch engagement</li>
+		<li>BAT	(battery) - only comes on when an external supply is connected</li>
+		<li>not used</li>
+		<li>NAV (navigation instrun=ments) gyros are run by ac - so this goes out just after 
+			the ALT.NR light above</li>
+		<li>FUEL (low fuel warning) - comes on below 50 litres = 40kg of Avtur</li>
+		<li>not used</li>
+		<li>not used</li>
+		<li>F.FILT (Fuel Filter blocked) at the bottom right</li>
+	</ul>
+	</td>
+</tr>
+</table>
+
+<!-- ================================================================ Directional Gyro -->
+<table width = "620" cellpadding="2" cellspacing="2" border="0"><tr>
+<tr bgcolor="gray"><th align="center" colspan="2">Direction Gyro (GyroCompass)</th></tr>
+  <td valign="bottom">
+The heading bug of the <b>Direction Gyro</b> (or gyrocompass, direction indicator) 
+follows whatever is set in the Autopilot's Heading Bug field (whether 
+the AP is engaged or not). Just after you start the sim, it will be set to your heading 
+at that point. 
+<br /><br />
+Apart from using the AP dialog, the bug and the AP can be changed together by using the <b>4</b>/<b>2</b> 
+keypad keys (for -/+ 1 deg changes) or by using the '<b>(</b>' or '<b>)</b>' bracket keys 
+(for -/+ 10 deg changes). Additionally, if you have heading-hold engaged at the time 
+then the aircraft will also change direction using these keys.
+<br />
+  </td>
+  <td >
+    <img src ="dg.png">
+  </td>
+</tr>
+<tr>
+	<td align="left" colspan="2">
+<br />
+The '<b>+</b>' keypad key can be used to engage heading hold, which will also set the heading bug 
+to the current heading.
+<br /><br />
+The homing pointer will set itself to the "<i>next waypoint</i>" selected in the route manager 
+flight plan (if route manager is being used). As you fly over the waypoint it will spin 
+round, much like when navigating via beacons.
+	</td>
+</tr>
+</table>
+
+
+<!-- ================================================================= Radar Altimeter -->
+<table width = "620" cellpadding="2" cellspacing="2" border="0"><tr>
+<tr bgcolor="gray"><th align="center" colspan="2">Radar Altimeter (Rad Alt)</th></tr>		
+<tr>
+	<td align="left">
+The <b>Radar Altimeter</b> "DH" (Decision Height) bug is set by tapping the 8 or 2 keypad 
+keys for Up/Dn. This only works as long as "altitude-hold" or "vertical-speed-hold" are 
+NOT currently in use. The bug sets the point when the yellow "DH" light comes on/off (top 
+left of the Rad-Alt instrument).
+<br /><br />
+On the ground, the needle goes behind the panel and the warning flag comes out 
+(and vice-versa). This is not a bug - it's a feature.
+	</td>
+	<td >
+    	<img src ="radalt.png">
+  	</td>
+</tr>
+</table>
+
+
+
+<a name="engineShutdown"></a>                                     <h2>ENGINE SHUTDOWN</h2>
+<table width = "620" cellpadding="2" cellspacing="2" border="0"><tr>
+<tr bgcolor="gray"><th align="center" colspan="2">Closing down the Gazelle</th></tr>
+  <td valign="bottom">
+The Gazelle can be shut down automatically either from the Gazelle menu or by clicking on 
+the OFF-RUN-INJ selector at the bottom left of the lower instrument console.<br />
+<br />
+This will shut the aircraft down by cutting off the fuel flow to the engine then, after a 
+venting/cooling period, apply the rotor brake to bring the rotors to a standstill.
+<br /><br />  </td>
+  <td ><img src ="autoshutdown.jpg"><br /><img src ="startSwitch.jpg"></td></td>
+</tr>
+<tr>
+	<td align="left" colspan="2">
+	</td>
+</tr>
+</table>
+
+
+</body>
+</html>

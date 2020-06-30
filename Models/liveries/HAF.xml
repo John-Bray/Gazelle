@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <sim>
+    <model>
+      <livery>
+        <name type="string">HAF Industries</name>
+        <texture>liveries/HAF.jpg</texture>
+
+      </livery>
+    </model>
+	 <rendering>
+		<refl_correction type="string">-0.25</refl_correction>
+	</rendering>
+  </sim>
+
+</PropertyList>

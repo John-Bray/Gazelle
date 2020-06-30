@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	<path>gsdi.ac</path>
+	
+	<animation>
+    <type>material</type>
+    <object-name>uneedle</object-name>
+	<object-name>vneedle</object-name>
+    <object-name>Face</object-name>
+    <emission>
+            <red>   0.005 </red>
+      <green> 0.015 </green>
+      <blue>  0.030 </blue>
+      <factor-prop>systems/electrical/outputs/instrument-lights</factor-prop>
+    </emission>
+  </animation>
+	
+	<animation>
+		<type>translate</type>
+		<object-name>uneedle</object-name>
+		<!--<property>instrumentation/gsdi/drift-u-kt</property>-->
+		<property>sim/multiplay/generic/string[12]</property>
+		<factor>0.005</factor>
+		<min-m>-0.03</min-m>
+		<max-m>0.03</max-m>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>1</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>vneedle</object-name>
+		<!--<property>instrumentation/gsdi/drift-v-kt</property>-->
+		<property>sim/multiplay/generic/string[13]</property>
+		<factor>0.005</factor>
+		<min-m>-0.03</min-m>
+		<max-m>0.03</max-m>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+</PropertyList>

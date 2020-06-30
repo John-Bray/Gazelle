@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <sim>
+    <model>
+      <livery>
+        <name type="string">UN</name>
+        <texture>liveries/un.jpg</texture>
+
+      </livery>
+    </model>
+	 <rendering>
+		<refl_correction type="string">-0.4</refl_correction>
+	</rendering>
+  </sim>
+
+</PropertyList>

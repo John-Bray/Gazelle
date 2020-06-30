@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+<path>dave.ac</path>
+
+ 
+<animation>
+        <type>range</type>
+        <min-m>0</min-m>
+        <max-m>500</max-m>
+    </animation>
+
+	
+
+	
+  <animation>
+    <name>head100</name>
+    <object-name>head1</object-name>
+	<object-name>head2</object-name>
+    <object-name>head3</object-name>
+    <object-name>head4</object-name>
+<object-name>head3.001</object-name>
+
+  </animation>
+
+
+  <animation>
+    <type>rotate</type>
+    <object-name>head100</object-name>
+    
+    <property>controls/flight/elevator</property>
+    <factor> -15 </factor> 
+    <center>
+      <x-m> 0.02 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> 0.0</z-m>
+    </center>
+    <axis>
+      <x> 0.000 </x>
+      <y> 1.000 </y>
+      <z> 0.000 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>head100</object-name>
+  
+    <property>controls/flight/rudder</property>
+    <factor>-25</factor>
+    <center>
+      <x-m> 0.02 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> 0.0 </z-m>
+    </center>
+    <axis>
+      <x> 0.000 </x>
+      <y> 0.000 </y>
+      <z> 1.000 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+     <object-name>head100</object-name>
+   
+    <property>controls/flight/aileron</property>
+    <factor> -10.0</factor>
+    <center>
+       <x-m> 0.02 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> 0.0</z-m>
+    </center>
+    <axis>
+      <x> 1.000 </x>
+      <y> 0.000 </y>
+      <z> 0.000 </z>
+    </axis>
+  </animation> 
+
+	
+	
+</PropertyList>
+

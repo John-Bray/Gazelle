@@ -1,0 +1,246 @@
+<?xml version="1.0"?>
+<!--  This "-W" = Westland version. 
+      The  "-A" = Aerospatiale version, which is yet to be created, may be different. 
+                                                                      Warty 16 Aug 2016-->
+<PropertyList>
+      
+<key n="4">                       <name>Ctrl-D</name><desc>Open/close selected door</desc>
+  <binding>
+    <command>nasal</command>
+    <script>bo105.doors.toggle()</script>
+  </binding>
+</key>
+<key n="25">                         <name>Ctrl-Y</name><desc>Show material dialogs</desc>
+  <binding>
+    <command>nasal</command>
+    <script>
+      material.showDialog("/sim/model/Gazelle/material/fuselage/", nil, 10);
+      material.showDialog("/sim/model/Gazelle/material/glass/", nil, 240);
+      material.showDialog("/sim/model/Gazelle/material/emblem/", nil, 470);
+    </script>
+  </binding>
+</key>
+<key n="40">                                        <name>(</name><desc>left 10 deg</desc>
+  <binding>
+    <command>nasal</command>
+    <script>
+      setprop("/autopilot/settings/heading-bug-deg",  
+      getprop("/autopilot/settings/heading-bug-deg") -10);
+      setprop("/autopilot/settings/true-heading-deg", 
+      getprop("/autopilot/settings/true-heading-deg") -10);
+    </script>
+  </binding>
+</key>
+<key n="41">                                       <name>)</name><desc>right 10 deg</desc>
+  <binding>
+    <command>nasal</command>
+    <script>
+      setprop("/autopilot/settings/heading-bug-deg",  
+      getprop("/autopilot/settings/heading-bug-deg") +10);
+      setprop("/autopilot/settings/true-heading-deg", 
+      getprop("/autopilot/settings/true-heading-deg") +10);
+    </script>
+  </binding>
+</key>
+<key n="43">                                            <name>+</name><desc>HdgHold</desc>
+<!-- '+' key sets Hdg Hold at current values  -->
+<!-- was repeat last message on default keyboard -->
+  <binding>
+    <condition><!-- NOT on the ground or can produce some strange effects! -->
+      <not><property>/gear/gear/wow</property></not>
+    </condition>
+    <command>nasal</command>
+    <script>
+      setprop("/autopilot/settings/heading-bug-deg",  
+      int(getprop("/orientation/heading-magnetic-deg")) );
+      setprop("/autopilot/settings/true-heading-deg", 
+      int(getprop("/orientation/heading-deg")) );          
+      setprop("/autopilot/locks/heading", "dg-heading-hold");          
+    </script>
+  </binding>
+</key>
+<key n="50">                                      <name>2</name><desc>Decrease Alt</desc>
+  <!-- was decrease elevator trim on default keyboard -->
+    <binding>
+    <command>nasal</command>
+    <script>
+    if (getprop("/autopilot/locks/altitude") == "altitude-hold"){
+      setprop("/autopilot/settings/target-altitude-ft", 
+        getprop("autopilot/settings/target-altitude-ft") -100);
+    }
+    elsif (getprop("/autopilot/locks/altitude") == "vertical-speed-hold"){
+      setprop("/autopilot/settings/vertical-speed-fpm", 
+        getprop("autopilot/settings/vertical-speed-fpm") -100);
+    }
+    else{
+      setprop("/instrumentation/radar-altimeter/decision-height", 
+        getprop("/instrumentation/radar-altimeter/decision-height") -10);
+    }
+    </script>    
+  </binding>
+</key>
+<!-- key n="51" = >3< = Decrease throttle or autopilot autothrottle LEFT ALONE for now -->
+<key n="52">                                        <name>4</name><desc>DecreaseHdg</desc>
+<!--   Move aileron left (or adjust AP heading.)  on default keyboard -->
+  <binding>
+    <command>nasal</command>
+    <script>
+      setprop("/autopilot/settings/heading-bug-deg", 
+      getprop("/autopilot/settings/heading-bug-deg") -1);
+      setprop("/autopilot/settings/true-heading-deg", 
+      getprop("/autopilot/settings/true-heading-deg") -1);
+    </script>    
+  </binding>  
+</key> 
+<key n="54">                                        <name>6</name><desc>IncreaseHdg</desc>
+  <!--   Move aileron right (or adjust AP heading.)  on default keyboard -->
+  <binding>
+    <command>nasal</command>
+    <script>
+    setprop("/autopilot/settings/heading-bug-deg", 
+    getprop("/autopilot/settings/heading-bug-deg") +1);
+    setprop("/autopilot/settings/true-heading-deg", 
+    getprop("/autopilot/settings/true-heading-deg") +1);
+    </script>    
+  </binding>  
+</key>
+<key n="56">                                        <name>8</name><desc>InrceaseAlt</desc>
+  <!--  Increase elevator trim  on default keyboard -->
+    <binding>
+    <command>nasal</command>
+    <script>
+    if (getprop("/autopilot/locks/altitude") == "altitude-hold"){
+      setprop("/autopilot/settings/target-altitude-ft", 
+        getprop("autopilot/settings/target-altitude-ft") +100);
+    }
+    elsif (getprop("/autopilot/locks/altitude") == "vertical-speed-hold"){
+      setprop("/autopilot/settings/vertical-speed-fpm", 
+        getprop("autopilot/settings/vertical-speed-fpm") +100);
+    }  
+    else{
+      setprop("/instrumentation/radar-altimeter/decision-height", 
+        getprop("/instrumentation/radar-altimeter/decision-height") +10);
+    }
+    </script>    
+  </binding>
+</key>
+<!-- key n="57" = >9< = Increase throttle or autopilot autothrottle LEFT ALONE for now -->
+<key n="61">                          <name>=</name><desc>Show configuration dialog</desc>
+  <binding>
+    <command>nasal</command>
+    <script>bo105.config_dialog.toggle()</script>
+  </binding>
+</key>
+<key n="68">                               <name>D</name><desc>Select previous door</desc>
+  <binding>
+    <command>nasal</command>
+    <script>bo105.doors.previous()</script>
+  </binding>
+</key>
+<key n="82">                                 <name>R</name><desc>Toggle rotor brake</desc>
+  <binding>
+    <command>nasal</command>
+    <script>
+      var p = "/controls/rotor/brake";
+      setprop(p, !getprop(p));
+    </script>
+  </binding>
+</key>
+<key n="89">                            <name>Y</name><desc>Select previous variant</desc>
+<binding>
+<command>nasal</command>
+<script>aircraft.livery.previous()</script>
+</binding>
+</key>
+<key n="100">                                  <name>d</name><desc>Select next door</desc>
+  <binding>
+  <command>nasal</command>
+    <script>bo105.doors.next()</script>
+  </binding>
+</key>
+<key n="105">                            <name>i</name><desc>Toggle ignition switch</desc>
+  <binding>
+    <command>nasal</command>
+    <script>
+      foreach (var e; controls.engines) {
+        if (e.selected.getValue()) {
+        var i = e.controls.getNode("ignition", 1);
+        i.setValue(!i.getValue());
+        }
+      }
+    </script>
+  </binding>
+</key>
+<key n="108">                              <name>l</name><desc>Landing light toggle</desc>
+  <binding>
+    <command>nasal</command>
+    <script>
+      if(getprop("/lightpack/landing-lights-intensity") == 1){
+        setprop ("/lightpack/landing-lights-intensity", 0);
+      }
+      else{setprop("/lightpack/landing-lights-intensity", 1);}
+    </script>
+  </binding>
+</key> 
+<key m="109">                                             <name>m</name><desc>Map</desc>
+  <binding>
+   <command>nasal</command>
+   <script>
+    gui.showDialog("map");
+   </script>
+  </binding>
+</key>
+<key n="110">                                           <name>n</name><desc>No map</desc>
+  <binding>
+   <command>nasal</command>
+   <script>
+    fgcommand("dialog-close", props.Node.new({ "dialog-name": "map" }));
+   </script>
+  </binding>
+</key>
+<key n="114">                                 <name>r</name><desc>Apply rotor brake</desc>
+  <binding>
+    <command>nasal</command>
+    <script>interpolate("/controls/rotor/brake", 1.0, 2)</script>
+  </binding>
+  <mod-up>
+    <binding>
+      <command>nasal</command>
+      <script>interpolate("/controls/rotor/brake", 0.0, 2)</script>
+    </binding>
+  </mod-up>
+</key>
+<key n="118">                   <name>Alt-v</name><desc>Toggle dynamic cockpit view</desc>
+  <mod-alt>
+    <binding>
+      <command>property-toggle</command>
+      <property>/sim/view/dynamic/enabled</property>
+    </binding>
+  </mod-alt>
+</key>
+<key n="121">                               <name>y</name><desc>Select next variant</desc>
+  <binding>
+    <command>nasal</command>
+    <script>aircraft.livery.next()</script>
+  </binding>
+</key>
+<key n="123">                                  <name>{</name><desc>Shutdown Engines</desc>
+  <binding>
+  <command>nasal</command>
+    <script>bo105.shutdown()</script>
+    <condition>
+      <property>/sim/signals/fdm-initialized</property>
+    </condition>
+  </binding>
+</key>
+<key n="125">                                     <name>}</name><desc>Start Engines</desc>
+  <binding>
+    <command>nasal</command>
+    <script>bo105.startup()</script>
+    <condition>
+      <property>/sim/signals/fdm-initialized</property>
+    </condition>
+  </binding>
+</key>
+
+</PropertyList>

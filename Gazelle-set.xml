@@ -1,0 +1,644 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	<sim>
+		<description>Aerospatiale_Gazelle</description>
+		<author>3dregenerator ( 3d), StuartC ( FG conversion + FDM ) Lester Bofo  (3d ) Warty ( instruments ), Gary Brown ( Liveries ) Geed ( SoundFX )</author>
+		<status>1.1</status>
+		<license>See Licence text file</license>
+		<aircraft-version>1.1</aircraft-version>
+
+		<flight-model>yasim</flight-model>
+		<aero>gazelle</aero>
+		<fuel-fraction>1.0</fuel-fraction>
+		
+		  <rating>
+      <FDM type="int">     4 </FDM>
+      <systems type="int"> 3 </systems>
+      <cockpit type="int"> 4 </cockpit>
+      <model type="int">   4</model>
+    </rating>
+	
+	 <tags>
+      <tag>Aérospatiale</tag>
+      <tag>Helicopter</tag>
+      <tag>Single engine</tag>
+      <tag>Gazelle</tag>
+      <tag>SA-341 </tag>
+      <tag>Military</tag>
+	  <tag>FGUK</tag>
+	  <tag>Rotary Wing</tag>
+      <tag>1970s</tag>
+	  <tag>1980s</tag>
+	  <tag>1990s</tag>
+      <tag>2000s</tag>
+    </tags>
+
+		<startup>
+			<splash-texture>Aircraft/Gazelle/splash.jpg</splash-texture>
+		</startup>
+		
+			<previews>
+	  <preview>
+		<type>interior</type>
+		<splash type="bool">true</splash>
+		<path>SplashA/splash.png</path>
+	  </preview>
+	  <preview>
+		<type>exterior</type>
+		<splash type="bool">true</splash>
+		<path>SplashA/splash1.png</path>
+	  </preview>
+	  <preview>
+		<type>exterior</type>
+		<splash type="bool">true</splash>
+		<path>SplashA/splash2.png</path>
+	  </preview>
+	  <preview>
+		<type>interior</type>
+		<splash type="bool">true</splash>
+		<path>SplashA/splash3.png</path>
+	  </preview>
+	  <preview>
+		<type>exterior</type>
+		<splash type="bool">true</splash>
+		<path>SplashA/splash4.png</path>
+	  </preview>
+	  <preview>
+		<type>exterior</type>
+		<splash type="bool">true</splash>
+		<path>SplashA/splash5.png</path>
+	  </preview>
+
+	</previews>
+
+		<gui>
+			<style>
+				<colors>
+					<splash-font>
+						<red>0.25</red>
+						<green>0.28</green>
+						<blue>0.31</blue>
+					</splash-font>
+				</colors>
+			</style>
+		</gui>
+
+		<instrumentation>
+			<path>Aircraft/Gazelle/Instruments/instrumentation.xml</path>
+		</instrumentation>
+
+		<sound>
+			<path>Aircraft/Gazelle/Sounds/sound.xml</path>
+		</sound>
+
+		<submodels>
+			<serviceable type="bool">true</serviceable>
+			<path>Aircraft/Gazelle/Models/submodels.xml</path>
+		</submodels>
+
+		<panel>
+			<visibility archive="n">false</visibility>
+		</panel>
+		
+		  <systems>
+		  
+      <electrical>
+        <path>Aircraft/Gazelle/System/fgukelectrical.xml</path>
+      </electrical>
+	 
+    <autopilot>
+        <path>Aircraft/Gazelle/System/autopilot.xml</path>
+      </autopilot>
+	  
+	  <autopilot n="101">
+        <path>Aircraft/Gazelle/System/glass-rain.xml</path>
+      </autopilot>
+	  
+    </systems> 
+	
+		<flight-recorder include="System/flight-recorder.xml"/>
+		
+
+		<model>
+			<path archive="y">Aircraft/Gazelle/Models/Gazelle.xml</path>
+			<bo105>
+				<tail-angle-deg type="int" archive="y">0</tail-angle-deg>
+				<state type="int">0</state>
+				<rotor-step-deg type="float">-1.0</rotor-step-deg>
+
+				<particles>
+				
+					<enabled type="bool">true</enabled>
+			
+           
+				</particles>
+
+
+			<doors>
+					<door>
+						<position-norm type="double">0.0</position-norm>
+						<name type="string">pilot's door</name>
+					</door>
+
+					<door>
+						<position-norm type="double">0.0</position-norm>
+						<name type="string">copilot's door</name>
+					</door>
+
+					<door>
+						<position-norm type="double">0.0</position-norm>
+						<name type="string">right backdoor</name>
+					</door>
+
+					<door>
+						<position-norm type="double">0.0</position-norm>
+						<name type="string">left backdoor</name>
+					</door>
+
+					<door>
+						<position-norm type="double">0.0</position-norm>
+						<name type="string">right reardoor</name>
+					</door>
+
+					<door>
+						<position-norm type="double">0.0</position-norm>
+						<name type="string">left reardoor</name>
+					</door>
+				</doors>
+			</bo105>
+
+			<livery>
+				<file type="string"/>
+			</livery>
+		</model>
+		
+	 <rendering>
+		<refl_correction type="string">-0.35</refl_correction>
+	</rendering>
+		<multiplay>
+			<generic>
+				  
+        <!-- Nav lights on -->
+      <int n="0" alias="/controls/switches/nav-lights-switch" />
+      <!-- Beacon on -->
+      <int n="1" alias="/controls/switches/beacon-switch" />
+      <!-- Landing lights on -->
+      <int n="2" alias="/controls/switches/landing-lights-switch" />
+	    <!-- Taxi light on -->
+      <int n="3" alias="/controls/switches/strobe-switch" />
+	 
+	  
+	   <int n="6" alias="/gear/gear/ground-is-solid"/><!-- rotor particles -->
+      <!-- Crashed -->
+      <int n="7" alias="/sim/crashed" />
+	   <int n="10"></int> <!--  Dual Control Reserved -->	
+        
+		
+		<!-- doors over MP -->
+	            <!-- <float n="0" alias="/sim/model/bo105/doors/door[0]/position-norm"/> -->
+				<float n="0" type="double">0</float>
+				<float n="1" alias="/sim/model/bo105/doors/door[1]/position-norm"/>
+				<float n="2" alias="/sim/model/bo105/doors/door[2]/position-norm"/>
+				<float n="3" alias="/sim/model/bo105/doors/door[3]/position-norm"/>
+				
+				<float n="6" alias="/orientation/pitch-deg"/>	<!-- rotor particles + AI -->
+	            <float n="7" alias="/position/gear-agl-m"/>	<!-- rotor particles -->
+	            <float n="8" alias="/orientation/roll-deg"/><!-- rotor particles + AI-->
+	            <float n="9" alias="/rotors/main/torque"/>	<!-- rotor particles -->
+				
+				
+				 <string alias="/sim/weight[0]/selected" n="1"/> <!-- Payload over multiplayer -->
+				 <!-- CWP over mp -->
+				 <string alias="/instrumentation/cwp/PITOT" n="2"/>
+				 <string alias="/instrumentation/cwp/ENGP" n="3"/>
+				 <string alias="/instrumentation/cwp/MGBP" n="4"/>
+				  <string alias="/instrumentation/cwp/MGBT" n="5"/>
+				  <string alias="/instrumentation/cwp/GEN" n="6"/>
+				  <string alias="/instrumentation/cwp/ALTNR" n="7"/>
+				   <string alias="/instrumentation/cwp/NAV" n="8"/>
+				   <string alias="/instrumentation/cwp/FUEL" n="9"/>
+				   <!-- -->
+				    <string alias="/instrumentation/heading-indicator/indicated-heading-deg" n="9"/><!-- Gyrocompass -->
+					<string alias="/instrumentation/heading-indicator/heading-bug-error-deg" n="10"/><!-- Gyrocompass -->
+					<string alias="/instrumentation/slip-skid-ball/indicated-slip-skid" n="11"/><!-- Slip ball -->
+					<string alias="/instrumentation/gsdi/drift-u-kt" n="12"/><!-- gdsi -->
+					<string alias="/instrumentation/gsdi/drift-v-kt" n="13"/><!-- gdsi -->
+		 <!-- Dual Control -->
+		  <float n="10" alias="/autopilot/internal/heading-bug-error-deg"/><!-- gyrocompass-->
+		        <float n="11" alias="/consumables/fuel/total-fuel-lbs"/><!-- fuel.-->
+		        <float n="12" alias="/velocities/vertical-speed-fpm"/><!-- vsi.-->
+			    <float n="13" alias="/rotors/gear/total-torque"/><!-- torque-->
+				<float n="14" alias="/instrumentation/airspeed-indicator/indicated-speed-kt"/><!-- ASI-->
+				<float n="15" alias="/instrumentation/altimeter/indicated-altitude-ft"/><!-- ALT -->
+				<float n="16" alias="/instrumentation/altimeter/setting-hpa"/><!-- ALT hpa digits-->
+				<float n="17" alias="/position/altitude-agl-ft"/><!-- Radar Alt.-->
+				<float n="18" alias="/engines/engine/n1-rpm"/><!-- engine rpm.-->
+				<float n="19" alias="/engines/engine/tot-degc"/><!-- engine temp.-->
+				
+			</generic>
+		</multiplay>
+
+		<rendering>
+			<camera-group>
+				<znear type="double">0.1</znear>
+			</camera-group>
+		</rendering>
+
+		<view n="0">
+			<internal archive="y">true</internal>
+			<config>
+				<x-offset-m archive="y">0.35</x-offset-m><!--right-->
+				<y-offset-m archive="y">0.35</y-offset-m><!--up-->
+				<z-offset-m archive="y">-1.6</z-offset-m><!--back-->
+				<pitch-offset-deg archive="y">-6</pitch-offset-deg>
+				<default-field-of-view-deg>95</default-field-of-view-deg>
+			</config>
+		</view>
+
+		<view n="1">
+			<config>
+				<target-z-offset-m archive="y" type="double">2.5</target-z-offset-m>
+			</config>
+		</view>
+
+		<view n="2">
+			<config>
+				<target-z-offset-m archive="y" type="double">2.5</target-z-offset-m>
+			</config>
+		</view>
+
+		<view n="3">
+			<config>
+				<target-z-offset-m archive="y" type="double">2.5</target-z-offset-m>
+			</config>
+		</view>
+
+		<view n="4">
+			<config>
+				<target-z-offset-m archive="y" type="double">2.5</target-z-offset-m>
+			</config>
+		</view>
+
+		<view n="5">
+			<config>
+				<target-z-offset-m archive="y" type="double">2.5</target-z-offset-m>
+			</config>
+		</view>
+
+		<view n="6">
+			<config>
+				<target-z-offset-m archive="y" type="double">2.5</target-z-offset-m>
+			</config>
+		</view>
+
+		<view n="100">
+			<name>Belly View</name>
+			<enabled type="bool">false</enabled>
+			<type>lookfrom</type>
+			<internal archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<from-model-idx type="int">0</from-model-idx>
+				<x-offset-m archive="y">0</x-offset-m>    <!-- right? -->
+				<y-offset-m archive="y">-1</y-offset-m>   <!-- up -->
+				<z-offset-m archive="y">3.5</z-offset-m>  <!-- back -->
+				<pitch-offset-deg>0</pitch-offset-deg>
+				<ground-level-nearplane-m type="double">0.05f</ground-level-nearplane-m>
+				<default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
+				<default-pitch-deg type="double">-15</default-pitch-deg>
+				<default-heading-deg type="double">0</default-heading-deg>
+				<front-direction-deg type="double">0</front-direction-deg>
+				<front-left-direction-deg type="double">45</front-left-direction-deg>
+				<left-direction-deg type="double">90</left-direction-deg>
+				<back-left-direction-deg type="double">135</back-left-direction-deg>
+				<back-direction-deg type="double">180</back-direction-deg>
+				<back-right-direction-deg type="double">225</back-right-direction-deg>
+				<right-direction-deg type="double">270</right-direction-deg>
+				<front-right-direction-deg type="double">315</front-right-direction-deg>
+				<default-field-of-view-deg>55</default-field-of-view-deg>
+			</config>
+		</view>
+		
+	<view n="101">
+    <name>Pilot cam</name>
+        <internal archive="y">false</internal>
+        <config>
+		 <from-model type="bool">true</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+         <x-offset-m archive="y">0.0</x-offset-m><!--right-->
+		 <y-offset-m archive="y">0.7</y-offset-m><!--up-->
+		 <z-offset-m archive="y">-2.2</z-offset-m><!--back-->
+          <pitch-offset-deg>0</pitch-offset-deg>
+		  <heading-offset-deg>199</heading-offset-deg>
+          <default-field-of-view-deg>110</default-field-of-view-deg>
+        </config>
+     
+  </view>
+  
+  
+  	<view n="102">
+			<name>Over the shoulder</name>
+			<internal archive="y">false</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<from-model-idx type="int">0</from-model-idx>
+				<x-offset-m archive="y">0.52</x-offset-m><!--right-->
+				<y-offset-m archive="y">0.8</y-offset-m><!--up-->
+				<z-offset-m archive="y">-1.0</z-offset-m><!--back-->
+				<pitch-offset-deg>-14</pitch-offset-deg>
+				<heading-offset-deg>10</heading-offset-deg>
+				<default-field-of-view-deg>65</default-field-of-view-deg>
+			</config>
+		</view>
+
+		<hud>
+			<enable3d>false</enable3d>
+		</hud>
+
+		<weight n="0">
+			<name>Pilot</name>
+			<weight-lb>180</weight-lb>
+			<max-lb>300</max-lb>
+		</weight>
+
+		<weight n="1">
+			<name>Co-Pilot</name>
+			<weight-lb>180</weight-lb>
+			<max-lb>300</max-lb>
+		</weight>
+
+		<weight n="2">
+			<name>Right Passenger</name>
+			<weight-lb>0</weight-lb>
+			<max-lb>300</max-lb>
+		</weight>
+
+		<weight n="3">
+			<name>Middle Passenger</name>
+			<weight-lb>0</weight-lb>
+			<max-lb>300</max-lb>
+		</weight>
+
+		<weight n="4">
+			<name>Left Passenger</name>
+			<weight-lb>0</weight-lb>
+			<max-lb>300</max-lb>
+		</weight>
+
+		<weight n="5">
+			<name>Load</name>
+			<weight-lb>0</weight-lb>
+			<max-lb>800</max-lb>
+		</weight>
+
+		<menubar>
+			<default>
+				<menu n="100">
+					<label>Gazelle</label>
+					<item>
+						<label>Autostart</label>
+						<binding>
+							<command>nasal</command>
+							<script>bo105.startup()</script>
+						</binding>
+					</item>
+					<item>
+						<label>Autoshutdown</label>
+						<binding>
+							<command>nasal</command>
+							<script>bo105.shutdown()</script>
+						</binding>
+					</item>
+					<item>
+        <label>Select Livery</label>
+        <binding>
+          <command>nasal</command>
+          <script>aircraft.livery.dialog.toggle()</script>
+        </binding>
+      </item> 
+					<item>
+						<label>Browser Help</label>
+						<binding>
+							<command>open-browser</command>
+							<path>Aircraft/Gazelle/Docs/html/browser-help.html</path>
+						</binding>
+					</item>
+				</menu>
+			</default>
+		</menubar>
+
+
+		<help>
+			<title>Gazelle</title>
+			<key>
+				<name>{ }</name>
+				<desc>shutdown/start turbines</desc>
+			</key>
+			
+			<key>
+				<name>i</name>
+				<desc>toggle ignition switch</desc>
+			</key>
+			
+			<key>
+				<name>n/N</name>
+				<desc>engine power adjustment up/down</desc>
+			</key>
+			<key>
+				<name>r</name>
+				<desc>apply rotor brake</desc>
+			</key>
+			<key>
+				<name>R</name>
+				<desc>toggle rotor brake</desc>
+			</key>
+			
+			
+			<key>
+				<name>MMB</name>
+				<desc>adjust power lever (middle mouse button)</desc>
+			</key>
+			<line>The Gyrocompass. </line>
+			<line>The heading bug follows whatever is set in the Autopilot's Heading Bug field (whether the AP is engaged or not).</line>
+            <line>Just after you start the sim, it will be set to your heading at that point. Apart from using the AP dialog, </line>
+			<line>the bug and the AP can be changed together using the 4/2 keypad keys (for -/+ 1 deg changes) or the '(', ')' </line>
+			<line>bracket keys (for -/+ 10 deg changes). Obviously if you also have heading-hold engaged at the time then the aircraft </line>
+			<line>will also change direction using these keys. The '+' keypad key can be used to engage heading hold, </line>
+			<line>which will also set the heading bug to the current heading.</line>
+           <line> The homing pointer will set itself to the "next waypoint" selected in the route manager flight plan</line>
+		   <line>(if route manager is being used). </line>
+ <line> </line>
+ <line> Lighting. The Landing light swich is located on the Collective.</line>
+<line> The Switches for Nav lights, Strobes and beacons are on the main panel below the GDSI. </line>
+ 
+ <line> </line>
+ <line>  Manual Starting.</line>
+<line> Ensure the Rotor brake is off ( Click it to  turn it on/off ).</line>  
+<line>Ensure the engine power lever is all the way  to the rear ( Yellow lever on the overhead panel.</line>
+<line> Clicking + mousewheel adjusts the power lever. ). Flick the Starter switch on the main panel to "Start"</line>
+<line> and the start sequence begins.  When all warning ligts on the CWP are out, you are ready to take off.</line>
+<line> </line>
+ <line> Manual Shutdown.</line> 
+ <line>Using the Power lever on the Overhread panel, Shut the power down to 0 be pulling the lever all the way to the rear.</line>
+<line> Engange the Rotorbrake after the Turbine shuts down ( indicated by the CWP ). </line>
+		</help>
+		
+
+
+		
+		
+		<weight n="0">
+<name>Configuration</name>
+<weight-lb>0</weight-lb>
+<selected>none</selected>
+
+<opt>
+<name>Basic Airframe</name>
+<lbs>0</lbs>
+</opt>
+
+
+<opt>
+<name>Onions</name>
+<lbs>2</lbs>
+</opt>
+
+</weight>				
+		
+	</sim>
+	
+	<environment>
+    <turbulence>
+      <use-cloud-turbulence>true</use-cloud-turbulence>
+    </turbulence>
+	<precipitation-control>
+            <clip-distance type="double">1.75</clip-distance>
+        </precipitation-control>
+  </environment>
+
+	<consumables>
+		<fuel>
+			<tank>
+				<name>Main</name>
+				<selected type="bool" write="n">1</selected>
+				<density-ppg type="double" write="n">6.682</density-ppg>
+			</tank>
+
+			<tank>
+				<name>Supply</name>
+				<selected type="bool" write="n">1</selected>
+				<density-ppg type="double" write="n">6.682</density-ppg>
+			</tank>
+		</fuel>
+	</consumables>
+
+	<controls>
+		<rotor>
+			<reltarget type="double">0</reltarget>
+			<maxreltorque type="double">0</maxreltorque>
+		</rotor>
+
+		<armament>
+			<trigger type="bool">false</trigger>
+		</armament>
+
+		<engines>
+			<engine n="0">
+				<magnetos>1</magnetos>
+				<propeller-pitch alias="/controls/engines/power-trim"/>
+				<mixture alias="/controls/engines/power-balance"/>
+			</engine>
+
+			<engine n="1">
+				<magnetos>1</magnetos>
+				<propeller-pitch alias="/controls/engines/power-trim"/>
+				<mixture alias="/controls/engines/power-balance"/>
+				<throttle alias="/controls/engines/engine[0]/throttle"/>
+			</engine>
+
+			<power-trim type="double">0</power-trim>
+			<power-balance type="double">0</power-balance>
+		</engines>
+
+		<switches>
+	<landing-lights-switch type="bool">false</landing-lights-switch>
+	<nav-lights-switch type="bool">false</nav-lights-switch>
+	<beacon-switch type="bool">false</beacon-switch>
+	<strobe-switch type="bool">false</strobe-switch>
+	<white-light-switch type="bool">false</white-light-switch>
+	</switches>
+	</controls>
+
+	<instrumentation>
+		<gsdi>
+			<serviceable type="bool">true</serviceable>
+		</gsdi>
+		<hsi>
+			<serviceable type="bool" archive="y">true</serviceable>
+		</hsi>
+		
+		 <efis>
+
+			<ecam>
+					<display-mode type="string">FUEL</display-mode>
+			</ecam>
+			<nd>
+					<display-mode type="string">VOR</display-mode>
+					<display-mode-knob type="int">2</display-mode-knob>
+					<display-range type="int">10</display-range>
+				
+			</nd>
+			<input>
+				<vor-adf-1 type="int">1</vor-adf-1>
+				<vor-adf-2 type="int">1</vor-adf-2>
+				<CSTR type="bool">1</CSTR>
+				<WPT type="bool">1</WPT>
+				<VORD type="bool">1</VORD>
+				<NDB type="bool">1</NDB>
+				<ARPT type="bool">1</ARPT>
+				<WX type="bool">1</WX>
+				<TERR type="bool">1</TERR>
+				<TRAF type="bool">1</TRAF>
+				<taxi type="bool">1</taxi>
+			</input>
+
+		
+		</efis>
+	</instrumentation>
+
+	<input>
+		<keyboard include="Input/keyboard-gaz-W.xml" />
+	</input>
+
+	<nasal>
+	<FG1000>
+<file>Aircraft/Gazelle/Nasal/FGUK1000.nas</file>
+</FG1000>
+	<rotorwash>
+	<file>Aircraft/Gazelle/Nasal/rotorwash.nas</file>
+	</rotorwash>
+	
+		<bo105>
+			 <file>Aircraft/Gazelle/Nasal/bo105.nas</file>
+			 <file>Aircraft/Gazelle/Nasal/liveries.nas</file>
+			  <file>Aircraft/Instruments-3d/ki266/ki266.nas</file>
+			  <file>Aircraft/Gazelle/Nasal/woolthread.nas</file>
+			   
+		</bo105>
+<kns80>
+<file>Aircraft/Gazelle/Instruments/kns80/KNS80.nas</file>
+</kns80>		
+		<lights>
+      <file>Aircraft/Gazelle/Nasal/Lights.nas</file>
+    </lights>
+		
+	
+	</nasal>
+
+	<rotors>
+		<main>
+			<rpm type="double">0</rpm>
+		</main>
+	</rotors>
+</PropertyList>

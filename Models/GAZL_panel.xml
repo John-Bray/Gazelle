@@ -1,0 +1,630 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <path>Aircraft/Gazelle/Models/Interior/GAZL_panel.ac</path>
+<!--                                                          top left to bottom right -->
+  <animation>
+    <object-name>compass_Standby</object-name>
+    <object-name>needle_ASI</object-name>
+    <object-name>ball_AI_main</object-name>
+    <object-name>roll-pointer</object-name> 
+    <object-name>needle_VSI</object-name>
+    <object-name>ball_AI_stby</object-name>
+    <object-name>roll-pointer_stby</object-name> 
+    <object-name>needle_Alt1</object-name>
+    <object-name>needle_Alt2</object-name>
+    <object-name>diskHeading</object-name>
+    <object-name>gyrobug</object-name>
+    <object-name>needleHoming</object-name>
+    <object-name>needle_RadAlt</object-name>
+	<object-name>needle_Torque</object-name>
+    <object-name>needle_OilTempEng</object-name>
+    <object-name>needle_Fuel</object-name>
+    <object-name>needle_Volts</object-name>
+	<object-name>needle_T4</object-name>
+	<object-name>needle_N1</object-name>
+	<object-name>needle_NR</object-name>
+	<object-name>HourHand</object-name>
+	<object-name>MinuteHand</object-name>
+	<object-name>SecondHand</object-name>
+   
+  </animation>
+
+<!--                                                                  Magnetic Compass -->
+<animation>
+  <type>rotate</type>
+  <object-name>compass_Standby</object-name>
+  <property>/instrumentation/magnetic-compass/indicated-heading-deg</property>
+  <center>
+    <x-m>-2.291</x-m><!-- back -->
+    <y-m> 0.014</y-m><!-- right -->
+    <z-m> 0.554</z-m><!-- up -->
+  </center>
+  <axis>
+    <x>0</x>
+    <y>0</y>
+    <z>1</z>
+  </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>compass_Standby</object-name>
+    <property>/orientation/roll-deg</property>
+    <factor>0.5</factor>
+  <center>
+    <x-m>-2.291</x-m><!-- back -->
+    <y-m> 0.014</y-m><!-- right -->
+    <z-m> 0.554</z-m><!-- up -->
+  </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+   <animation>
+    <type>rotate</type>
+    <object-name>compass_Standby</object-name>
+    <property>/orientation/pitch-deg</property>
+    <factor>0.5</factor>
+  <center>
+    <x-m>-2.291</x-m><!-- back -->
+    <y-m>0.014</y-m><!-- right -->
+    <z-m>0.554</z-m><!-- up -->
+  </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y><!-- pitch -->
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+<!--                                                         ASI / Air Speed Indicator -->    
+  <animation>
+    <type>rotate</type>
+    <object-name>needle_ASI</object-name>
+    <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+     <interpolation>
+      <entry><ind> -999 </ind><dep>   0 </dep></entry>
+      <entry><ind>    0 </ind><dep>   0 </dep></entry>
+      <entry><ind>   30 </ind><dep>  34 </dep></entry>
+      <entry><ind>   40 </ind><dep>  62 </dep></entry>
+      <entry><ind>   50 </ind><dep>  92 </dep></entry>
+      <entry><ind>   60 </ind><dep> 117 </dep></entry>
+      <entry><ind>   70 </ind><dep> 139 </dep></entry>
+      <entry><ind>   80 </ind><dep> 161 </dep></entry>
+      <entry><ind>   90 </ind><dep> 180 </dep></entry>
+      <entry><ind>  100 </ind><dep> 196 </dep></entry>
+      <entry><ind>  110 </ind><dep> 212 </dep></entry>
+      <entry><ind>  120 </ind><dep> 227 </dep></entry>
+      <entry><ind>  130 </ind><dep> 242 </dep></entry>
+      <entry><ind>  140 </ind><dep> 255 </dep></entry>
+      <entry><ind>  150 </ind><dep> 268 </dep></entry>
+      <entry><ind>  170 </ind><dep> 297 </dep></entry>
+      <entry><ind>  200 </ind><dep> 339 </dep></entry>
+      <entry><ind>  999 </ind><dep> 359 </dep></entry>
+    </interpolation>
+    <center>
+       <x-m>0.000</x-m><!-- back -->
+       <y-m>0.055</y-m><!-- right -->
+       <z-m>0.282</z-m><!-- up -->
+    </center>
+    <axis>
+      <x> -1 </x><!--  roll -->
+      <y>  0 </y><!-- pitch -->
+      <z>  0 </z><!--   yaw -->
+    </axis>
+  </animation> 
+  
+<!--                              AI / Attitude Indicator / Artificial Horizon  (main) -->  
+  <animation><type>rotate</type>            <!-- engine start up -->
+    <object-name>ball_AI_main</object-name> 
+	<property>/engines/engine/n1-rpm</property>
+	<condition>
+      <less-than>
+        <property>/engines/engine/n1-rpm</property><value>35000</value>
+      </less-than>
+	</condition>
+    <interpolation>
+      <entry><ind>  	0 </ind><dep> 49 </dep></entry>
+      <entry><ind>  32000 </ind><dep> 50 </dep></entry>
+      <entry><ind>  33000 </ind><dep> 35 </dep></entry>
+      <entry><ind>  34000 </ind><dep>-20 </dep></entry>
+      <entry><ind>  35000 </ind><dep>  0 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.000</x-m>
+      <y-m>0.143</y-m><!-- right -->
+      <z-m>0.273</z-m><!-- up -->
+    </center>
+    <axis> <x> 1 </x><!--  roll --><y> 0 </y><z> 0 </z></axis>
+  </animation>
+  <animation><type>rotate</type>            <!-- engine running -->
+    <object-name>ball_AI_main</object-name>
+    <property>/orientation/roll-deg</property>
+    <factor>1</factor>
+    <center>
+      <x-m>0.000</x-m>
+      <y-m>0.143</y-m><!-- right -->
+      <z-m>0.273</z-m><!-- up -->
+    </center>
+    <axis> <x> 1 </x><!--  roll --><y> 0 </y><z> 0 </z></axis>
+  </animation>  
+  <animation><type>rotate</type>
+    <object-name>ball_AI_main</object-name>
+    <property>/orientation/pitch-deg</property>
+    <factor>1</factor>
+    <center>
+      <x-m> -2.456 </x-m><!-- back -->
+      <y-m>  0.000 </y-m>
+      <z-m>  0.273 </z-m><!-- up -->
+    </center>
+    <axis><x>0</x><y>1</y><!-- pitch --><z>0</z></axis>
+  </animation> 
+  <animation>
+    <type>rotate</type>
+    <object-name>roll-pointer</object-name> 
+    <property>/orientation/roll-deg</property>
+    <factor>1</factor>
+    <center>
+      <x-m>0.000</x-m>
+      <y-m>0.143</y-m><!-- right -->
+      <z-m>0.273</z-m><!-- up -->
+    </center>
+    <axis><x> 1 </x><!--  roll --><y> 0 </y><z> 0 </z></axis>
+  </animation>
+ 
+
+ 
+ 
+ 
+ 
+  
+  
+<!--                                                    VSI / Vertical Speed Indicator -->  
+  <animation>
+    <type>rotate</type>
+    <object-name>needle_VSI</object-name>
+    <property>instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>
+    <interpolation>
+     <entry><ind> -2500 </ind><dep>  -165 </dep></entry>
+     <entry><ind> -2000 </ind><dep>  -142 </dep></entry>
+      <entry><ind> -1500 </ind><dep> -110 </dep></entry>
+      <entry><ind> -1000 </ind><dep>  -82 </dep></entry>
+      <entry><ind>  -500 </ind><dep>  -40 </dep></entry>
+      <entry><ind>     0 </ind><dep>    0 </dep></entry>
+      <entry><ind>   500 </ind><dep>   40 </dep></entry>
+      <entry><ind>  1000 </ind><dep>   82 </dep></entry>
+      <entry><ind>  1500 </ind><dep>  110 </dep></entry>
+      <entry><ind>  2000 </ind><dep>  142 </dep></entry>
+      <entry><ind>  2500 </ind><dep>  165 </dep></entry>
+    </interpolation>
+    <center>
+       <x-m>0.000</x-m><!-- back -->
+       <y-m>0.229</y-m><!-- right -->
+       <z-m>0.282</z-m><!-- up -->
+    </center>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>  
+ 
+ <!--                          AI / Attitude Indicator / Artificial Horizon  (standby) -->  
+  <animation><type>rotate</type>                <!-- engine start up -->
+        <object-name>ball_AI_stby</object-name> 
+	<property>/engines/engine/n1-rpm</property>
+	<condition>
+      <less-than>
+        <property>/engines/engine/n1-rpm</property><value>35000</value>
+      </less-than>
+	</condition>
+    <interpolation>
+      <entry><ind>  	0 </ind><dep> 49 </dep></entry>
+      <entry><ind>  32000 </ind><dep> 50 </dep></entry>
+      <entry><ind>  33000 </ind><dep> 35 </dep></entry>
+      <entry><ind>  34000 </ind><dep>-20 </dep></entry>
+      <entry><ind>  35000 </ind><dep>  0 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> 0.000</x-m>
+      <y-m>-0.031</y-m><!-- right -->
+      <z-m> 0.199</z-m><!-- up -->
+    </center>
+    <axis><x> 1 </x><!--  roll --><y> 0 </y><z> 0 </z></axis>
+  </animation> 
+  <animation><type>rotate</type>                 <!-- engine running -->
+    <object-name>ball_AI_stby</object-name>
+    <property>/orientation/roll-deg</property>
+    <factor>1</factor>
+    <center>
+      <x-m> 0.000</x-m>
+      <y-m>-0.031</y-m><!-- right -->
+      <z-m> 0.199</z-m><!-- up -->
+    </center>
+    <axis><x>1</x><!--  roll --><y>0</y><z>0</z></axis>
+  </animation>  
+  <animation><type>rotate</type>
+    <object-name>ball_AI_stby</object-name>
+    <property>/orientation/pitch-deg</property>
+    <factor>1</factor>
+    <center>
+      <x-m> -2.442 </x-m><!-- back -->
+      <y-m>  0.000 </y-m>
+      <z-m>  0.199 </z-m><!-- up -->
+    </center>
+    <axis><x> 0 </x><y> 1 </y><!-- pitch --><z> 0 </z></axis>
+  </animation> 
+  <animation><type>rotate</type>
+    <object-name>roll-pointer_stby</object-name> 
+    <property>/orientation/roll-deg</property>
+    <factor>1</factor>
+    <center>
+      <x-m> 0.000</x-m>
+      <y-m>-0.031</y-m><!-- right -->
+      <z-m> 0.199</z-m><!-- up -->
+    </center>
+    <axis><x> 1 </x><!--  roll --><y> 0 </y><z> 0 </z></axis>
+  </animation>
+  
+  
+ <!--                                                                Altimeter Needles -->
+ <animation>
+  <type>rotate</type>
+  <object-name>needle_Alt1</object-name>
+  <property>instrumentation/altimeter/indicated-altitude-ft</property>
+  <factor>0.36</factor>
+  <center>
+   <x-m>0</x-m>
+       <y-m>0.055</y-m><!-- right -->
+       <z-m>0.206</z-m><!-- up -->
+  </center> 
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+  <animation>
+  <type>rotate</type>
+  <object-name>needle_Alt2</object-name>
+  <property>instrumentation/altimeter/indicated-altitude-ft</property>
+  <factor>0.036</factor>
+  <center>
+   <x-m>0</x-m>
+       <y-m>0.055</y-m><!-- right -->
+       <z-m>0.206</z-m><!-- up -->
+  </center> 
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>  
+ 
+<!--                                                            DI / DG / Gyro Compass -->
+<animation>
+	<name>Card</name>
+	<type>rotate</type>
+	<object-name>diskHeading</object-name>
+		<condition>
+		<greater-than>
+			<property>/engines/engine/n1-rpm</property>
+			<value>35000</value>
+		</greater-than>
+	</condition>
+	<property>instrumentation/heading-indicator/indicated-heading-deg</property>
+	<factor>1</factor>
+  <center>
+    <x-m>0</x-m>
+    <y-m>0.143</y-m><!-- right -->
+    <z-m>0.173</z-m><!-- up -->
+  </center>	
+	<axis><x>1</x></axis>
+</animation>
+
+<animation>
+	<name>NeedleWithCard</name>
+	<type>rotate</type>
+	<object-name>needleHoming</object-name>
+	<property>instrumentation/heading-indicator/heading-bug-error-deg</property>
+	<factor>1</factor>
+  <center>
+    <x-m>0</x-m>
+    <y-m>0.143</y-m><!-- right -->
+    <z-m>0.173</z-m><!-- up -->
+  </center>	<axis><x>-1</x></axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>gyrobug</object-name>
+	<property>/autopilot/internal/heading-bug-error-deg</property>
+	<factor>1</factor>
+  <center>
+    <x-m>0</x-m>
+    <y-m>0.143</y-m><!-- right -->
+    <z-m>0.173</z-m><!-- up -->
+  </center>	
+	<axis><x>-1</x></axis>
+</animation>
+
+<animation>
+    <type>rotate</type>
+        <object-name>diskHeading</object-name> 
+	<property>/engines/engine/n1-rpm</property>
+	<condition>
+		<less-than>
+			<property>/engines/engine/n1-rpm</property>
+			<value>35000</value>
+		</less-than>
+	</condition>
+    <interpolation>
+      <entry><ind>  	0 </ind><dep>  0 </dep></entry>
+      <entry><ind>  32000 </ind><dep>  1 </dep></entry>
+      <entry><ind>  33000 </ind><dep>  20 </dep></entry>
+      <entry><ind>  34000 </ind><dep> -15 </dep></entry>
+      <entry><ind>  34500 </ind><dep> -10 </dep></entry>
+      <entry><ind>  35000 </ind><dep>   0 </dep></entry>
+    </interpolation>
+  <center>
+    <x-m>0</x-m>
+    <y-m>0.143</y-m><!-- right -->
+    <z-m>0.173</z-m><!-- up -->
+  </center>	
+    <axis><x> 1</x></axis>
+  </animation>
+ 
+
+<!--                                                                   Radar Altimeter -->
+  <animation>
+    <type>rotate</type>
+    <object-name>needle_RadAlt</object-name>
+    <property>position/altitude-agl-ft</property>
+    <interpolation>
+		<entry><ind>    0 </ind><dep>   0 </dep></entry>
+		<entry><ind>    4 </ind><dep>  90 </dep></entry>
+		<entry><ind>    5 </ind><dep> 355 </dep></entry>
+		<entry><ind>   25 </ind><dep> 337 </dep></entry><!-- minus 5 -->
+		<entry><ind>   50 </ind><dep> 315 </dep></entry><!-- minus 5 -->
+		<entry><ind>  100 </ind><dep> 275 </dep></entry><!-- minus 5 -->
+		<entry><ind>  150 </ind><dep> 232 </dep></entry><!-- minus 5 -->
+		<entry><ind>  200 </ind><dep> 192 </dep></entry><!-- minus 8 -->
+		<entry><ind>  300 </ind><dep> 175 </dep></entry><!-- minus 5 -->
+		<entry><ind>  400 </ind><dep> 160 </dep></entry><!-- minus 5 -->
+		<entry><ind>  500 </ind><dep> 143 </dep></entry><!-- minus 5 -->
+		<entry><ind> 1000 </ind><dep> 132 </dep></entry>
+		<entry><ind> 1500 </ind><dep> 120 </dep></entry>
+		<entry><ind> 2000 </ind><dep> 108 </dep></entry>
+		<entry><ind> 5000 </ind><dep> 103 </dep></entry>      
+    </interpolation>
+  <center>
+    <x-m>0</x-m>
+    <y-m>0.055</y-m><!-- right -->
+    <z-m>0.114</z-m><!-- up -->
+  </center>
+   <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+<!--                                                                      Torque Meter -->
+	<animation>
+		<type>rotate</type>
+		<object-name>needle_Torque</object-name>
+		<property>rotors/gear/total-torque</property>
+		<interpolation>
+			<entry><ind>     0</ind><dep> 28</dep></entry>
+			<entry><ind>160000</ind><dep> 180</dep></entry>
+			<entry><ind>320000</ind><dep> 332</dep></entry>					
+		</interpolation>
+  <center>
+    <x-m>0</x-m>
+    <y-m>0.229</y-m><!-- right -->
+    <z-m>0.206</z-m><!-- up -->
+  </center>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+ 
+ <!--                                                                  Engine Oil Temp -->
+  <animation>
+    <type>rotate</type><!-- this is bit of a cheat beause there isn't 
+                            an engine-oil-temperature property available -->  
+    <object-name>needle_OilTempEng</object-name>
+    <property>/engines/engine/tot-degc</property>
+    <interpolation>
+      <entry><ind> -400 </ind><dep>  0 </dep></entry>
+      <entry><ind>  0 </ind><dep> 45 </dep></entry>
+      <entry><ind>  800 </ind><dep>180 </dep></entry><!-- 60 deg C -->
+      <entry><ind> 1600 </ind><dep>225 </dep></entry>
+      <entry><ind> 2000 </ind><dep>270 </dep></entry>
+    </interpolation>
+  <center>
+    <x-m>0</x-m>
+    <y-m>0.129</y-m><!-- right -->
+    <z-m>0.095</z-m><!-- up -->
+  </center>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation> 
+ <!--                                                                       Fuel in kg -->
+  <animation>
+    <type>rotate</type>
+    <object-name>needle_Fuel</object-name>
+    <property>/consumables/fuel/tank/level-lbs</property>
+    <interpolation>
+      <entry><ind>   0 </ind><dep> -118 </dep></entry>
+      <entry><ind>  88 </ind><dep>  -60 </dep></entry>
+      <entry><ind> 220 </ind><dep>   -8 </dep></entry>
+      <entry><ind> 330 </ind><dep>   32 </dep></entry>
+      <entry><ind> 440 </ind><dep>   78 </dep></entry>
+      <entry><ind> 660 </ind><dep>  142 </dep></entry>
+      <entry><ind> 770 </ind><dep>  172 </dep></entry>
+      <entry><ind> 801 </ind><dep>  190 </dep></entry>
+    </interpolation>
+  <center>
+    <x-m>0</x-m>
+    <y-m>0.181</y-m><!-- right -->
+    <z-m>0.095</z-m><!-- up -->
+  </center>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+ <!--                                                                DC/BatteryVoltage -->
+  <animation>
+    <type>rotate</type>
+    <object-name>needle_Volts</object-name>
+    <property>/systems/electrical/volts</property><!-- 10V = 90deg -->
+    <interpolation>
+      <entry><ind>   0 </ind><dep>  -67.5 </dep></entry>
+      <entry><ind>  7.5 </ind><dep>  0 </dep></entry>
+      <entry><ind>  17.5 </ind><dep>  90 </dep></entry>
+      <entry><ind> 27.5 </ind><dep>  180 </dep></entry>
+      <entry><ind> 37.5 </ind><dep>  270 </dep></entry>
+    </interpolation>
+  <center>
+    <x-m>0</x-m>
+    <y-m>0.231</y-m><!-- right -->
+    <z-m>0.095</z-m><!-- up -->
+  </center>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+
+
+<!--    needle_T4	-2.408	    -0.026	0.137
+			        -2.418		-0.021	0.137                   Engine Temperature T4  -->
+  <animation>
+	<type>rotate</type>
+	<object-name>needle_T4</object-name>
+		<property>/engines/engine/tot-degc</property>
+		<interpolation>
+			<entry><ind>     0 </ind><dep>   0 </dep></entry>
+			<entry><ind>    80 </ind><dep>  10 </dep></entry>
+			<entry><ind>   800 </ind><dep> 120 </dep></entry>
+			<entry><ind>  1600 </ind><dep> 240 </dep></entry>
+		</interpolation>
+	<axis><!-- -2.413	0.024	-0.137 -->
+      <x1-m> -2.405 </x1-m>
+      <x2-m> -2.421 </x2-m>
+      <y1-m>  0.137 </y1-m>
+      <y2-m>  0.137 </y2-m>
+      <z1-m> 0.027 </z1-m>
+      <z2-m> 0.020</z2-m>
+	</axis>
+  </animation> 
+  
+<!--                                                        dual RPM gauge: N1 and NR  -->
+  <animation>
+		<type>rotate</type>
+		<object-name>needle_N1</object-name>
+		<property>/engines/engine/n1-rpm</property>
+		<interpolation>
+		<!-- Calibrated so that 43,500 indicated = 49,440 actual = *1.137-->
+			<entry><ind>     0 </ind><dep> -240 </dep></entry>
+			<entry><ind> 11370 </ind><dep> -180 </dep></entry>
+			<entry><ind> 22740 </ind><dep> -120 </dep></entry>
+			<entry><ind> 34110 </ind><dep>  -60 </dep></entry>
+			<entry><ind> 45480 </ind><dep>    0 </dep></entry>
+			<entry><ind> 56850 </ind><dep>   60 </dep></entry>
+		</interpolation>
+	<axis>
+      <x1-m> -2.386 </x1-m>
+      <x2-m> -2.391 </x2-m>
+      <y1-m>  0.188 </y1-m>
+      <y2-m>  0.188 </y2-m>
+      <z1-m> -0.019 </z1-m>
+      <z2-m> -0.021</z2-m>
+	</axis>
+  </animation>
+  <animation>
+		<type>rotate</type>
+		<object-name>needle_NR</object-name>
+		<property>rotors/main/rpm</property>
+		<interpolation>
+			<entry><ind>   0 </ind><dep> -240 </dep></entry>
+			<entry><ind> 100 </ind><dep> -175 </dep></entry>
+			<entry><ind> 175 </ind><dep> -120 </dep></entry>
+			<entry><ind> 260 </ind><dep>  -60 </dep></entry>
+			<entry><ind> 350 </ind><dep>    0 </dep></entry>
+			<entry><ind> 430 </ind><dep>   60 </dep></entry>
+		</interpolation>
+	<axis>
+      <x1-m> -2.386 </x1-m>
+      <x2-m> -2.391 </x2-m>
+      <y1-m>  0.188 </y1-m>
+      <y2-m>  0.188 </y2-m>
+      <z1-m> -0.019 </z1-m>
+      <z2-m> -0.021</z2-m>
+	</axis>
+  </animation>  
+
+<!--                                                            Clock  -->
+	<animation> 
+		<type>rotate</type>
+		<object-name>HourHand</object-name>
+		<property>instrumentation/clock/indicated-sec</property>
+		<factor>0.00833333333333333</factor>
+	<axis>
+      <x1-m> -2.386 </x1-m>
+      <x2-m> -2.391 </x2-m>
+      <y1-m>  0.244 </y1-m>
+      <y2-m>  0.244 </y2-m>
+      <z1-m> -0.019 </z1-m>
+      <z2-m> -0.021</z2-m>
+	</axis>
+	</animation>
+	<animation> 
+		<type>rotate</type>
+		<object-name>MinuteHand</object-name>
+		<property>instrumentation/clock/indicated-sec</property>
+		<factor>0.1</factor>
+	<axis>
+      <x1-m> -2.386 </x1-m>
+      <x2-m> -2.391 </x2-m>
+      <y1-m>  0.244 </y1-m>
+      <y2-m>  0.244 </y2-m>
+      <z1-m> -0.019 </z1-m>
+      <z2-m> -0.021</z2-m>
+	</axis>
+	</animation>
+	<animation> 
+		<type>rotate</type>
+		<object-name>SecondHand</object-name>
+		<property>instrumentation/clock/indicated-sec</property>
+		<factor>6</factor>
+	<axis>
+      <x1-m> -2.379 </x1-m>
+      <x2-m> -2.401 </x2-m>
+      <y1-m>  0.244 </y1-m>
+      <y2-m>  0.244 </y2-m>
+      <z1-m> -0.014 </z1-m>
+      <z2-m> -0.024</z2-m>
+	</axis>
+	</animation>	
+</PropertyList>
+
+
+ <!--
+
+	
+-->

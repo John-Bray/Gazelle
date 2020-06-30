@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	
+	
+<animation>
+        <type>range</type>
+        <min-m>0</min-m>
+        <max-m>500</max-m>
+    </animation>
+
+<model>
+		<name>Pylons</name>
+		<path>Aircraft/Gazelle/Models/payload/pylons.xml</path>
+		<offsets>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+			<pitch-deg>0.0</pitch-deg>
+		</offsets>
+	</model>	
+
+
+
+ 
+ 
+  <model>
+		<name>Military  package</name>
+		<path>Aircraft/Gazelle/Models/payload/mil.xml</path>
+		<offsets>
+			<x-m>0</x-m>
+            <y-m>  0.00000 </y-m>
+            <z-m>0</z-m>
+			<pitch-deg>0</pitch-deg>
+			<heading-deg>0</heading-deg>
+		</offsets>
+	</model>
+  <animation>
+    <type>select</type>
+    <object-name>Military  package</object-name>      
+    <condition>
+     
+        <equals>
+          <property>sim/multiplay/generic/string[1]</property>
+          <value>Military  package</value>
+        </equals>
+       
+    </condition>
+  </animation>
+
+
+
+
+ 
+
+  
+  <animation>
+  <type>select</type>
+  <object-name>pylon.C</object-name>  
+  <condition>
+
+   
+  
+   <equals>
+    <property>sim/multiplay/generic/string[1]</property>
+    <value>Military  package</value>
+   </equals>
+  
+  
+   
+   
+ 
+  </condition>
+ </animation>
+
+</PropertyList>

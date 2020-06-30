@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <sim>
+    <model>
+      <livery>
+        <name type="string">Armee De L Air, Tiger Meet 2017</name>
+        <texture>liveries/ADA_TM17.jpg</texture>
+		<milltexture>liveries2/3bits.jpg</milltexture>
+
+      </livery>
+    </model>
+	 <rendering>
+		<refl_correction type="string">-0.5</refl_correction>
+	</rendering>
+  </sim>
+
+</PropertyList>

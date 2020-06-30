@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <sim>
+    <model>
+      <livery>
+        <name type="string">Sperry Corp. IFR</name>
+        <texture>liveries/sperryIFR.jpg</texture>
+
+      </livery>
+    </model>
+	 <rendering>
+		<refl_correction type="string">-0.28</refl_correction>
+	</rendering>
+  </sim>
+
+</PropertyList>

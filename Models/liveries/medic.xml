@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <sim>
+    <model>
+      <livery>
+        <name type="string">Medivac</name>
+        <texture>liveries/medic.jpg</texture>
+
+      </livery>
+    </model>
+	 <rendering>
+		<refl_correction type="string">-0.3</refl_correction>
+	</rendering>
+  </sim>
+
+</PropertyList>
